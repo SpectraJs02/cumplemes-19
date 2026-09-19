@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nuestras canciones ♡</title>
+
+    <link rel="stylesheet" href="css/canciones.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         BOTÓN VOLVER
+    ========================== -->
+    <button class="back-button" onclick="volverInicio()">
+        ← Volver
+    </button>
+
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+    ========================== -->
+    <main class="songs-page">
+
+        <header class="songs-header">
+
+            <p class="small-heart">♡ ♡ ♡</p>
+
+            <h1>Nuestras canciones</h1>
+
+            <p class="subtitle">
+                Canciones que de alguna manera cuentan nuestra historia ♡
+            </p>
+
+        </header>
+
+
+        <!-- =========================
+             REPRODUCTOR
+        ========================== -->
+        <section class="music-player">
+
+            <div class="player-decoration decoration-one">♡</div>
+            <div class="player-decoration decoration-two">✦</div>
+            <div class="player-decoration decoration-three">♡</div>
+
+
+            <!-- TOCADISCOS -->
+            <div class="turntable">
+
+                <div class="record-wrapper">
+
+                    <div id="record" class="record">
+
+                        <div class="record-lines"></div>
+
+                        <div class="record-center">
+
+                            <span class="record-label">
+                                ♡
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BRAZO DEL TOCADISCOS -->
+                <div class="record-arm">
+
+                    <div class="arm-base"></div>
+
+                    <div class="arm-line"></div>
+
+                    <div class="needle"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- INFORMACIÓN DE LA CANCIÓN -->
+            <div class="song-information">
+
+                <p class="playing-label">
+                    REPRODUCIENDO AHORA
+                </p>
+
+                <h2 id="songTitle">
+                    Say Something
+                </h2>
+
+                <p id="songArtist">
+                    TWICE
+                </p>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+            <div class="player-controls">
+
+                <button
+                    id="previousButton"
+                    class="control-button"
+                    aria-label="Canción anterior"
+                >
+                    ⏮
+                </button>
+
+                <button
+                    id="playButton"
+                    class="play-button"
+                    aria-label="Reproducir"
+                >
+                    ▶
+                </button>
+
+                <button
+                    id="nextButton"
+                    class="control-button"
+                    aria-label="Siguiente canción"
+                >
+                    ⏭
+                </button>
+
+            </div>
+
+
+            <!-- PROGRESO -->
+            <div class="progress-area">
+
+                <span id="currentTime">
+                    0:00
+                </span>
+
+                <input
+                    type="range"
+                    id="progressBar"
+                    min="0"
+                    max="100"
+                    value="0"
+                >
+
+                <span id="duration">
+                    0:00
+                </span>
+
+            </div>
+
+
+            <!-- PLAYLIST -->
+            <div class="playlist-container">
+
+                <div class="playlist-title">
+                    <span>♡</span>
+                    Nuestra playlist
+                    <span>♡</span>
+                </div>
+
+                <div id="playlist" class="playlist"></div>
+
+            </div>
+
+
+            <!-- AUDIO -->
+            <audio id="audioPlayer" preload="metadata"></audio>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         MEOWL
+    ========================== -->
+    <div id="meowlContainer"></div>
+
+
+    <script src="js/canciones.js"></script>
+
+</body>
+</html>

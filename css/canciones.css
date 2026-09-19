@@ -1,0 +1,1222 @@
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+    --pink: #f6c8df;
+    --pink-light: #fff0f7;
+    --pink-dark: #d98bb5;
+
+    --purple: #c9b7e8;
+    --purple-light: #f3edff;
+    --purple-dark: #9a82c7;
+
+    --text: #5d4966;
+    --white: #ffffff;
+
+    --shadow:
+        0 15px 35px rgba(117, 82, 130, 0.18);
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    color: var(--text);
+
+    background-image:
+        linear-gradient(
+            rgba(255, 239, 248, 0.78),
+            rgba(239, 231, 250, 0.82)
+        ),
+        url("../img/gatitos.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   BOTÓN VOLVER
+===================================================== */
+
+.back-button {
+
+    position: fixed;
+
+    top: 25px;
+    left: 25px;
+
+    z-index: 1000;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    color: var(--purple-dark);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 20px rgba(100, 70, 120, 0.15);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.back-button:hover {
+
+    transform: translateY(-3px);
+
+    background: white;
+
+    box-shadow:
+        0 10px 25px rgba(100, 70, 120, 0.22);
+}
+
+
+/* =====================================================
+   PÁGINA
+===================================================== */
+
+.songs-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        80px 20px
+        60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.songs-header {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    animation:
+        headerAppear 0.8s ease;
+}
+
+.small-heart {
+
+    color: var(--pink-dark);
+
+    font-size: 18px;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 8px;
+}
+
+.songs-header h1 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(35px, 6vw, 58px);
+
+    color: #795b82;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+.subtitle {
+
+    font-size: 16px;
+
+    color: #806d88;
+
+    max-width: 600px;
+
+    margin: auto;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   REPRODUCTOR
+===================================================== */
+
+.music-player {
+
+    position: relative;
+
+    width: min(760px, 100%);
+
+    padding: 45px 45px 40px;
+
+    background:
+        rgba(255, 255, 255, 0.84);
+
+    backdrop-filter: blur(12px);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.9);
+
+    border-radius: 35px;
+
+    box-shadow: var(--shadow);
+
+    text-align: center;
+
+    overflow: hidden;
+
+    animation:
+        playerAppear 0.9s ease;
+}
+
+
+/* =====================================================
+   DECORACIONES
+===================================================== */
+
+.player-decoration {
+
+    position: absolute;
+
+    font-size: 25px;
+
+    color: var(--pink-dark);
+
+    opacity: 0.6;
+
+    pointer-events: none;
+}
+
+.decoration-one {
+
+    top: 25px;
+    left: 35px;
+
+    transform: rotate(-15deg);
+}
+
+.decoration-two {
+
+    top: 75px;
+    right: 40px;
+
+    color: var(--purple-dark);
+
+    transform: rotate(15deg);
+}
+
+.decoration-three {
+
+    bottom: 30px;
+    left: 25px;
+
+    transform: rotate(10deg);
+}
+
+
+/* =====================================================
+   TOCADISCOS
+===================================================== */
+
+.turntable {
+
+    position: relative;
+
+    width: 330px;
+    height: 330px;
+
+    margin: 0 auto 25px;
+}
+
+
+/* =====================================================
+   DISCO
+===================================================== */
+
+.record-wrapper {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f0c8df,
+            #d7c8ef
+        );
+
+    padding: 10px;
+
+    box-shadow:
+        0 12px 25px rgba(100, 70, 120, 0.2);
+}
+
+.record {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at center,
+
+            #f7d5e8 0 8%,
+
+            #b48ac2 8.5% 10%,
+
+            #2d2932 10.5% 11%,
+
+            #16151a 11.5% 20%,
+
+            #242027 20.5% 21%,
+
+            #111015 21.5% 30%,
+
+            #252029 30.5% 31%,
+
+            #111015 31.5% 40%,
+
+            #252029 40.5% 41%,
+
+            #111015 41.5% 50%,
+
+            #252029 50.5% 51%,
+
+            #111015 51.5% 60%,
+
+            #252029 60.5% 61%,
+
+            #111015 61.5% 70%,
+
+            #252029 70.5% 71%,
+
+            #111015 71.5% 80%,
+
+            #252029 80.5% 81%,
+
+            #111015 81.5% 90%,
+
+            #252029 90.5% 91%,
+
+            #111015 91.5% 100%
+        );
+
+    box-shadow:
+        inset 0 0 25px rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* =====================================================
+   BRILLO DEL DISCO
+===================================================== */
+
+.record::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.22),
+            transparent 35%,
+            transparent 65%,
+            rgba(255,255,255,0.05)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   CENTRO DEL DISCO
+===================================================== */
+
+.record-center {
+
+    position: absolute;
+
+    width: 58px;
+    height: 58px;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f6c8df,
+            #cbb8e8
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.2);
+}
+
+.record-label {
+
+    color: white;
+
+    font-size: 25px;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,0.15);
+}
+
+
+/* =====================================================
+   DISCO GIRANDO
+===================================================== */
+
+.record.playing {
+
+    animation:
+        spinRecord 4s linear infinite;
+}
+
+
+/* =====================================================
+   BRAZO DEL TOCADISCOS
+===================================================== */
+
+.record-arm {
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    right: 5px;
+    top: 5px;
+
+    transform:
+        rotate(-8deg);
+
+    transform-origin:
+        80% 20%;
+
+    z-index: 5;
+}
+
+.arm-base {
+
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d6c2df,
+            #a995b8
+        );
+
+    box-shadow:
+        0 5px 10px rgba(80,60,90,0.18);
+}
+
+.arm-line {
+
+    position: absolute;
+
+    width: 72px;
+    height: 7px;
+
+    top: 30px;
+    right: 22px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            to right,
+            #b5a1c0,
+            #8f7c99
+        );
+
+    transform:
+        rotate(50deg);
+
+    transform-origin: right center;
+}
+
+.needle {
+
+    position: absolute;
+
+    width: 13px;
+    height: 22px;
+
+    top: 68px;
+    right: 70px;
+
+    background:
+        #8d758f;
+
+    border-radius:
+        3px 3px 7px 7px;
+
+    transform:
+        rotate(50deg);
+}
+
+
+/* =====================================================
+   INFORMACIÓN DE LA CANCIÓN
+===================================================== */
+
+.song-information {
+
+    margin-top: 5px;
+
+    min-height: 90px;
+}
+
+.playing-label {
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: var(--pink-dark);
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+.song-information h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 27px;
+
+    color: #765779;
+
+    margin-bottom: 5px;
+}
+
+.song-information p:last-child {
+
+    color: #927f98;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   CONTROLES
+===================================================== */
+
+.player-controls {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 22px;
+
+    margin:
+        18px 0 20px;
+}
+
+.control-button,
+.play-button {
+
+    border: none;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.control-button {
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background:
+        var(--purple-light);
+
+    color:
+        var(--purple-dark);
+
+    font-size: 18px;
+}
+
+.play-button {
+
+    width: 62px;
+    height: 62px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink),
+            var(--purple)
+        );
+
+    color: white;
+
+    font-size: 22px;
+
+    padding-left: 3px;
+
+    box-shadow:
+        0 8px 20px rgba(180, 130, 190, 0.3);
+}
+
+.control-button:hover,
+.play-button:hover {
+
+    transform:
+        translateY(-3px) scale(1.05);
+}
+
+.control-button:active,
+.play-button:active {
+
+    transform:
+        scale(0.94);
+}
+
+
+/* =====================================================
+   BARRA DE PROGRESO
+===================================================== */
+
+.progress-area {
+
+    display: grid;
+
+    grid-template-columns:
+        42px 1fr 42px;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 30px;
+}
+
+.progress-area span {
+
+    font-size: 11px;
+
+    color: #927f98;
+}
+
+
+/* =====================================================
+   RANGE
+===================================================== */
+
+#progressBar {
+
+    width: 100%;
+
+    height: 5px;
+
+    appearance: none;
+
+    border-radius: 10px;
+
+    background:
+        #eadff0;
+
+    cursor: pointer;
+}
+
+#progressBar::-webkit-slider-thumb {
+
+    appearance: none;
+
+    width: 14px;
+    height: 14px;
+
+    border-radius: 50%;
+
+    background:
+        var(--pink-dark);
+
+    cursor: pointer;
+}
+
+#progressBar::-moz-range-thumb {
+
+    width: 14px;
+    height: 14px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        var(--pink-dark);
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   PLAYLIST
+===================================================== */
+
+.playlist-container {
+
+    text-align: left;
+
+    margin-top: 5px;
+}
+
+.playlist-title {
+
+    text-align: center;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+
+    color: #795b82;
+
+    margin-bottom: 15px;
+}
+
+.playlist-title span {
+
+    color: var(--pink-dark);
+
+    margin:
+        0 8px;
+}
+
+.playlist {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    max-height: 350px;
+
+    overflow-y: auto;
+
+    padding-right: 5px;
+}
+
+
+/* =====================================================
+   CANCIONES INDIVIDUALES
+===================================================== */
+
+.song-item {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 11px 14px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid transparent;
+
+    background:
+        rgba(249, 242, 251, 0.7);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border 0.2s ease;
+}
+
+.song-item:hover {
+
+    transform:
+        translateX(4px);
+
+    background:
+        rgba(255,255,255,0.95);
+
+    border-color:
+        rgba(217,139,181,0.25);
+}
+
+.song-item.active {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(246,200,223,0.55),
+            rgba(201,183,232,0.45)
+        );
+
+    border-color:
+        rgba(217,139,181,0.35);
+}
+
+.song-number {
+
+    width: 30px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color:
+        var(--pink-dark);
+
+    font-weight: 700;
+}
+
+.song-item.active .song-number {
+
+    color:
+        var(--purple-dark);
+}
+
+.song-details {
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+.song-name {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #6f5977;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.song-artist {
+
+    font-size: 11px;
+
+    color: #9b8ba0;
+
+    margin-top: 2px;
+}
+
+.song-play-icon {
+
+    width: 30px;
+
+    text-align: center;
+
+    color:
+        var(--purple-dark);
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   SCROLL DE PLAYLIST
+===================================================== */
+
+.playlist::-webkit-scrollbar {
+
+    width: 6px;
+}
+
+.playlist::-webkit-scrollbar-track {
+
+    background:
+        rgba(230,220,235,0.4);
+
+    border-radius: 10px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+
+    background:
+        var(--pink);
+
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   MEOWL
+===================================================== */
+
+#meowlContainer {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 5000;
+
+    overflow: hidden;
+}
+
+.meowl-click {
+
+    position: absolute;
+
+    width: 55px;
+    height: 55px;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    animation:
+        meowlPop 0.9s ease-out forwards;
+}
+
+
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+
+@keyframes spinRecord {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes meowlPop {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.2)
+            rotate(-15deg);
+    }
+
+    20% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.15)
+            rotate(8deg);
+    }
+
+    60% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -65%)
+            scale(1)
+            rotate(-4deg);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -100%)
+            scale(0.75)
+            rotate(8deg);
+    }
+}
+
+@keyframes headerAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes playerAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .music-player {
+
+        padding:
+            35px 25px;
+    }
+
+    .turntable {
+
+        width: 290px;
+        height: 290px;
+    }
+
+    .record-wrapper {
+
+        width: 245px;
+        height: 245px;
+    }
+
+    .record-arm {
+
+        right: -2px;
+        top: 0;
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .songs-page {
+
+        padding:
+            75px 12px 40px;
+    }
+
+    .back-button {
+
+        top: 15px;
+        left: 15px;
+
+        padding:
+            9px 15px;
+
+        font-size: 12px;
+    }
+
+    .songs-header {
+
+        margin-bottom: 20px;
+    }
+
+    .songs-header h1 {
+
+        font-size: 35px;
+    }
+
+    .subtitle {
+
+        font-size: 13px;
+
+        padding:
+            0 15px;
+    }
+
+    .music-player {
+
+        border-radius: 25px;
+
+        padding:
+            30px 16px;
+    }
+
+    .turntable {
+
+        width: 255px;
+        height: 255px;
+    }
+
+    .record-wrapper {
+
+        width: 215px;
+        height: 215px;
+    }
+
+    .record-arm {
+
+        transform:
+            rotate(-10deg)
+            scale(0.85);
+
+        right: -5px;
+        top: -5px;
+    }
+
+    .song-information h2 {
+
+        font-size: 23px;
+    }
+
+    .player-controls {
+
+        gap: 17px;
+    }
+
+    .playlist {
+
+        max-height: 300px;
+    }
+
+    .song-item {
+
+        padding:
+            10px 9px;
+    }
+
+    .song-name {
+
+        font-size: 13px;
+    }
+}

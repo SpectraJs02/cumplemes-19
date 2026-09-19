@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Un pequeño lugar para ti ♡</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="login-page">
+
+    <div class="floating-heart heart-1">♡</div>
+    <div class="floating-heart heart-2">♡</div>
+    <div class="floating-heart heart-3">♡</div>
+
+
+    <main class="login-container">
+
+        <section class="login-card">
+
+            <div class="login-decoration">
+                ♡
+            </div>
+
+
+            <!-- =========================================
+                 PANTALLA 1: USUARIO
+            ========================================== -->
+
+            <div id="usernameStep" class="login-step active">
+
+                <div class="login-photo-container">
+
+                    <img
+                        src="img/1.webp"
+                        alt="Nuestra foto"
+                        class="login-photo"
+                    >
+
+                </div>
+
+
+                <h1>Bienvenida ♡</h1>
+
+
+                <p class="login-subtitle">
+                    Este pequeño lugar fue hecho
+                    especialmente para ti.
+                </p>
+
+
+                <div class="input-group">
+
+                    <label for="username">
+                        USUARIO
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Escribe tu usuario..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <p
+                    id="userError"
+                    class="login-error"
+                ></p>
+
+
+                <button
+                    type="button"
+                    id="nextButton"
+                    class="login-button"
+                >
+                    Siguiente ♡
+                </button>
+
+            </div>
+
+
+            <!-- =========================================
+                 PANTALLA 2: CONTRASEÑA
+            ========================================== -->
+
+            <div
+                id="passwordStep"
+                class="login-step"
+            >
+
+                <div class="password-icon">
+                    🔐
+                </div>
+
+
+                <h1>Un pequeño secreto ♡</h1>
+
+
+                <p class="password-message">
+                    la contraseña es nuestro número &lt;3
+                </p>
+
+
+                <div class="input-group">
+
+                    <label for="password">
+                        CONTRASEÑA
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Escribe nuestro número..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <p
+                    id="passwordError"
+                    class="login-error"
+                ></p>
+
+
+                <button
+                    type="button"
+                    id="passwordButton"
+                    class="login-button"
+                >
+                    Entrar ♡
+                </button>
+
+
+                <button
+                    type="button"
+                    id="backButton"
+                    class="back-button"
+                >
+                    ← Volver
+                </button>
+
+            </div>
+
+
+            <div class="login-footer">
+
+                <span>Hecho con amor</span>
+
+                <span>🐱</span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         ALERTA GRANDE
+    ========================================== -->
+
+    <div
+        id="successAlert"
+        class="success-alert-overlay"
+    >
+
+        <div class="success-alert">
+
+            <div class="success-alert-cat">
+                🐱
+            </div>
+
+
+            <div class="success-alert-heart">
+                ♡
+            </div>
+
+
+            <h2>
+                ¡Usuario correcto!
+            </h2>
+
+
+            <p>
+                Sabía que eras tú,
+                mi linda novia ♡
+            </p>
+
+
+            <button
+                type="button"
+                id="alertContinueButton"
+                class="login-button"
+            >
+                Continuar ♡
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
